@@ -3,6 +3,8 @@ resource "aws_launch_configuration" "lc" {
   image_id      = "ami-0fc5d935ebf8bc3bc"
   instance_type = "t2.micro"
 
+# If we want to use file instead of inline script then use below synatx for userdata 
+  #user_data = filebase64("${path.module}/userdata_script.sh")
   user_data = <<-EOF
               #!/bin/bash
               sudo apt update -y
