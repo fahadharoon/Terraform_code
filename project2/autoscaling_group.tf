@@ -12,7 +12,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   launch_configuration = aws_launch_configuration.lc.name
   target_group_arns = [aws_lb_target_group.alb_tg.arn]
  tag {
-  key                 = "ecs_key"
+  key                 = var.keyname
   value               = "MyApp"
   propagate_at_launch = true
 }

@@ -1,7 +1,7 @@
 #Create security group for public subnet
 resource "aws_security_group" "public_sg" {
     vpc_id = aws_vpc.myvpc.id
-    name   = "PublicSecurityGroup"
+    name   = var.sg_name
 
     // Ingress rule allowing inbound traffic on port 80, 443, and 22
     ingress {
@@ -35,6 +35,6 @@ resource "aws_security_group" "public_sg" {
     }
 
     tags = {
-        Name = "allow_frontend"
+        Name = var.sg_tagname
     }
 }
